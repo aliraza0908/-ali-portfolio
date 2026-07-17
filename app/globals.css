@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-base-950 text-ink-100 font-body antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+html.light body {
+  @apply bg-[#F3F6F5] text-base-900;
+}
+
+::selection {
+  background: rgba(18, 229, 166, 0.3);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f16;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #12e5a6, #0aa981);
+  border-radius: 999px;
+}
+
+/* Glass card */
+.glass {
+  @apply bg-white/[0.04] border border-white/10 backdrop-blur-xl;
+}
+
+html.light .glass {
+  @apply bg-black/[0.03] border-black/10;
+}
+
+.section-eyebrow {
+  @apply font-mono text-xs tracking-[0.2em] text-accent-emerald uppercase;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #12e5a6 0%, #22c7b8 60%, #0aa981 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-overlay {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+html.light .grid-overlay {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
